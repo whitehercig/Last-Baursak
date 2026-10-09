@@ -1,0 +1,1 @@
+{"id":"last-baursak","type":"template","version":"0.1.0","summary":"Carry the last baursak through a chaotic student dorm and pass a Solana collectible to a friend.","provides":["deterministic tray physics","keyboard and touch controls","server-verified runs","Solana devnet relay"],"tags":["students","Kazakhstan","relay","Solana"],"author":{"name":"Last Baursak team"}}

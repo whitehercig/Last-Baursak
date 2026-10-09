@@ -1,0 +1,12 @@
+import type { Replay } from '../game/simulation';
+const base=import.meta.env.VITE_RELAY_API_URL || '';
+let token='';
+export type Relay = {mint:string;owner:string|null;history:Array<{signature:string;from:string;to:string;time:number|null;kind:string}>};
+export async function api<T>(path:string,body?:unknown):Promise<T>{const res=await fetch(`${base}/api${path}`,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{})},...(body?{body:JSON.stringify(body)}:{})});let json;try{json=await res.json();}catch{throw new Error('Сервер эстафеты недоступен. Тренировка работает — попробуй подключиться позже.');}if(!res.ok)throw new Error(json.error||'Запрос не прошёл');return json as T;}
+export type Wallet = {publicKey:{toString():string};connect:()=>Promise<unknown>;signMessage:(m:Uint8Array)=>Promise<{signature:Uint8Array}|Uint8Array>;signTransaction:(tx:unknown)=>Promise<{serialize:()=>Uint8Array}>};
+export function walletProvider():Wallet|null{const w=window as unknown as {phantom?:{solana?:Wallet};solana?:Wallet;solflare?:Wallet};return w.phantom?.solana||w.solflare||w.solana||null;}
+export function toBase64(bytes:Uint8Array){let b='';for(const v of bytes)b+=String.fromCharCode(v);return btoa(b);}
+export async function loginWallet(){const wallet=walletProvider();if(!wallet)throw new Error('Открой игру в браузере с Phantom или Solflare. Для начала можно играть без кошелька.');await wallet.connect();const address=wallet.publicKey.toString();const challenge=await api<{message:string;id:string}>('/auth/challenge',{address});const signed=await wallet.signMessage(new TextEncoder().encode(challenge.message));const sig=signed instanceof Uint8Array?signed:signed.signature;const auth=await api<{token:string}>('/auth/verify',{id:challenge.id,signature:toBase64(sig)});token=auth.token;return address;}
+export function startRun(){return api<{id:string}>('/runs/start',{});}
+export function verifyRun(id:string,replay:Replay){return api<{time:number;bumps:number;verified:boolean}>('/runs/finish',{id,replay});}
+export async function signAndSubmit(encoded:string){const wallet=walletProvider();if(!wallet)throw new Error('Кошелёк не подключён');const {Transaction}=await import('@solana/web3.js');const tx=Transaction.from(Uint8Array.from(atob(encoded),c=>c.charCodeAt(0)));const signed=await wallet.signTransaction(tx);return api<{signature:string}>('/solana/submit',{transaction:toBase64(signed.serialize())});}

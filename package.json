@@ -1,0 +1,61 @@
+{
+  "name": "last-baursak",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A student relay game built on iDos Games with Solana devnet collectibles",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run typecheck && vite build --base=./",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "server": "tsx server/index.ts",
+    "start": "concurrently -k \"npm:server\" \"npm:dev\"",
+    "test": "tsx --test tests/*.test.ts",
+    "verify": "tsx scripts/verify-idos.ts",
+    "check:browser": "node scripts/check-browser.mjs",
+    "check:api": "node scripts/check-api.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "//": "Versions are pinned exactly: this is a seed for AI Coder projects, which build offline against a dependency allowlist baked at these versions (see scripts/pack-builder.mjs). Modules bring their own engine deps (three/phaser) when added.",
+  "dependencies": {
+    "@idosgames/app-shell": "0.12.0",
+    "@idosgames/core": "0.21.1",
+    "@idosgames/module-sdk": "0.10.0",
+    "@idosgames/react": "0.4.4",
+    "@idosgames/wallet": "0.6.2",
+    "@reown/appkit": "1.8.23",
+    "@reown/appkit-adapter-solana": "^1.8.23",
+    "@reown/appkit-adapter-wagmi": "1.8.23",
+    "@solana/spl-token": "0.4.14",
+    "@solana/wallet-adapter-base": "^0.9.27",
+    "@solana/web3.js": "1.98.4",
+    "@tanstack/react-query": "5.101.2",
+    "bs58": "6.0.0",
+    "buffer": "^6.0.3",
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tweetnacl": "1.0.3",
+    "wagmi": "3.7.2"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.3",
+    "@types/node": "22.18.6",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "concurrently": "9.2.4",
+    "playwright": "1.56.1",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "8.1.5"
+  },
+  "overrides": {
+    "@wagmi/core": "3.6.5",
+    "shell-quote": "1.12.0",
+    "uuid": "11.1.1",
+    "stream-json": "3.7.0"
+  }
+}

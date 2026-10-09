@@ -1,0 +1,1 @@
+export { lastBaursakModule } from './module';

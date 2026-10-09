@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {initialState,replayRun,step,DT,recordFrame,type Replay} from '../src/modules/last-baursak/game/simulation';
+const winning=JSON.parse(fs.readFileSync(new URL('./fixtures/winning-replay.json',import.meta.url),'utf8')) as Replay;
+test('a real route wins and survives deterministic browser/server replay',()=>{const s=initialState();for(const[n,x,y,g]of winning.frames)for(let i=0;i<n;i++)step(s,{x:x/100,y:y/100,grip:g===1});assert.equal(s.status,'won');assert.deepEqual(replayRun(winning),s);assert.ok(s.t>20&&s.t<50);});
+test('standing still cannot claim a completed run',()=>{const s=replayRun({version:1,frames:[[3900,0,0,0]]});assert.notEqual(s.status,'won');});
+test('invalid values, input bounds and excessive duration are rejected',()=>{for(const frames of [[[1,NaN,0,0]],[[1,101,0,0]],[[1,0,0,2]],[[-1,0,0,0]],[[4000,0,0,0]],[[.5,0,0,0]]])assert.throws(()=>replayRun({version:1,frames}));assert.throws(()=>replayRun({version:2,frames:[]}));});
+test('compression preserves exact quantized inputs',()=>{const r:Replay={version:1,frames:[]};for(let i=0;i<15;i++)recordFrame(r,{x:.42,y:-1,grip:true});assert.deepEqual(r.frames,[[15,42,-100,1]]);});
+test('a lost run stays lost and cannot move to the finish afterward',()=>{const s=initialState();s.bx=40;step(s,{x:0,y:0,grip:false});assert.equal(s.status,'lost');const before={...s};for(let i=0;i<100;i++)step(s,{x:0,y:-1,grip:true});assert.deepEqual(s,before);});

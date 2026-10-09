@@ -1,0 +1,18 @@
+import {createRequire} from 'node:module';import fs from 'node:fs';
+const require=createRequire(new URL('../package.json',import.meta.url));const {Keypair,Transaction}=require('@solana/web3.js');const nacl=require('tweetnacl');
+const payer=Keypair.generate();
+let token='';const api=async(path,body)=>{const r=await fetch(`http://127.0.0.1:8787/api${path}`,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{})},body:JSON.stringify(body)});return {status:r.status,data:await r.json()};};
+const bad=await api('/auth/verify',{id:'bad',signature:'bad'});if(bad.status!==400)throw new Error('Invalid auth accepted');
+const unauth=await api('/runs/start',{});if(unauth.status!==400)throw new Error('Anonymous run accepted');
+const c=await api('/auth/challenge',{address:payer.publicKey.toBase58()});const sig=Buffer.from(nacl.sign.detached(new TextEncoder().encode(c.data.message),payer.secretKey)).toString('base64');const auth=await api('/auth/verify',{id:c.data.id,signature:sig});token=auth.data.token;if(!token)throw new Error(JSON.stringify(auth));
+const replayAuth=await api('/auth/verify',{id:c.data.id,signature:sig});if(replayAuth.status!==400)throw new Error('Auth challenge replay accepted');
+const run=await api('/runs/start',{});const mintBeforeWin=await api('/relay/mint',{runId:run.data.id});if(mintBeforeWin.status!==400)throw new Error('Reward without run accepted');
+const fake=await api('/runs/finish',{id:run.data.id,replay:{version:1,frames:[[3900,0,0,0]]}});if(fake.status!==400)throw new Error('Fake run accepted');
+const winning=JSON.parse(fs.readFileSync('tests/fixtures/winning-replay.json'));
+const tooEarly=await api('/runs/finish',{id:run.data.id,replay:winning});if(tooEarly.status!==400)throw new Error('Impossible fast replay accepted');
+console.log(JSON.stringify({auth:'passed',replayProtection:'passed',fakeWinRejected:true,tooEarlyRejected:true,waitingForRunTime:true}));
+await new Promise(r=>setTimeout(r,31000));
+const verified=await api('/runs/finish',{id:run.data.id,replay:winning});if(!verified.data.verified)throw new Error(JSON.stringify(verified));
+const prepared=await api('/relay/mint',{runId:run.data.id});if(!prepared.data.transaction)throw new Error(JSON.stringify(prepared));
+const tx=Transaction.from(Buffer.from(prepared.data.transaction,'base64'));tx.partialSign(payer);if(!tx.verifySignatures())throw new Error('Prepared transaction signatures invalid');
+console.log(JSON.stringify({verified:verified.data,preparedMint:prepared.data.mint,transactionBytes:tx.serialize().length,signaturesValid:true,devnetRpc:'passed'}));
