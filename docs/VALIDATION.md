@@ -11,7 +11,7 @@
 - Live API test: signed challenge authentication, single-use challenge protection, rejection of anonymous sessions, rejection of mint before completion, rejection of a fabricated win and impossible fast replay.
 - The API replayed and confirmed a real 30.2-second winning fixture.
 - Live Solana Devnet RPC: correct genesis, rent/blockhash reads, mint transaction construction and all required signatures. The fully signed transaction fits the Solana packet size (864 bytes).
-- The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. Production v7 has an English interface. The platform Dev build passed, then the public build was tested through a cat collision, retry, successful route using the steady control, and relay page. The earlier v6 landing page was also checked on a 390 px phone viewport; a separate v7 phone check is still pending.
+- The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. Production v7 has an English interface. The platform Dev build passed, then the public build was tested through a cat collision, retry, successful route using the steady control, and relay page. The v7 landing page and gameplay controls were visually checked at a 390 px phone viewport without horizontal overflow.
 - Public v7 browser captures: [title screen](screenshots/live-idos-v7.jpg) and [winning gameplay](screenshots/live-gameplay-v7.jpg).
 
 ## Not yet verified / not delivered
