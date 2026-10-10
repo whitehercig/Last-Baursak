@@ -7,9 +7,9 @@
 
 Last Baursak is a short student game about getting the last baursak to a hungry friend on the night before an exam. The published iDos Games edition is a 45-second room-to-room challenge: dodge the cat, keep the tray balanced, and reach room 201. An optional Solana wallet signature identifies the player without a transaction or fee. This repository also contains a more detailed local gameplay and Devnet relay prototype; its extra mechanics are not yet part of the published game.
 
-![Local gameplay prototype](docs/screenshots/desktop.png)
+![Published iDos Games title screen](docs/screenshots/live-idos-v6.jpg)
 
-To review the hackathon build, use the **live iDos Games link above**. The source adapted for the platform editor is in [docs/idos-live.tsx](docs/idos-live.tsx). The screenshot and instructions below refer to the more detailed **local prototype**. In the live build, use **WASD / arrows** or on-screen controls to move, and **Space / Придержать** to lower tray wobble.
+To review the hackathon build, use the **live iDos Games link above**. The source adapted for the platform editor is in [docs/idos-live.tsx](docs/idos-live.tsx). See the [published gameplay screenshot](docs/screenshots/live-gameplay-v6.jpg). In the live build, use **WASD / arrows** or on-screen controls to move, and **Space / Придержать** to lower tray wobble. The local run instructions below refer to a more detailed prototype.
 
 ## Play locally
 

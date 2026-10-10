@@ -12,6 +12,7 @@
 - The API replayed and confirmed a real 30.2-second winning fixture.
 - Live Solana Devnet RPC: correct genesis, rent/blockhash reads, mint transaction construction and all required signatures. The fully signed transaction fits the Solana packet size (864 bytes).
 - The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. Production V6 loaded and started a run. The platform Dev build detects the cat collision and accepts a successful route that steadies the tray. The public landing page was visually checked against the supplied screenshot and on a 390 px phone viewport.
+- Public browser captures: [title screen](screenshots/live-idos-v6.jpg) and [gameplay](screenshots/live-gameplay-v6.jpg).
 
 ## Not yet verified / not delivered
 
