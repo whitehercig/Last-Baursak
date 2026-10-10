@@ -1,11 +1,7 @@
-# Demo video plan — published iDos Games build
+# Demo video — published iDos Games build
 
-Record the game at https://4nkmxdoj.idos.games/. Aim for a 45–60 second video that shows the actual published behavior.
+[Watch the 25-second edited demo](../demo/live-idos-v6.mp4) or inspect the [continuous unedited browser capture](../demo/live-gameplay-raw.webm). Both show the public game at https://4nkmxdoj.idos.games/ as it was published in October 2026. The edited version adds an English explanatory panel and crops the browser recorder's empty bottom strip; it does not replace or simulate gameplay.
 
-- **0–6 s:** Open the title screen. “The night before an exam. One hungry friend. One last baursak.” Show the iDos Games game URL.
-- **6–15 s:** Start a run and move directly into the cat. Show the genuine failure message and retry button.
-- **15–35 s:** Restart, move above the cat, use Space / “Придержать” to lower tray wobble, and reach room 201. Show “Доставлено! Друг спасён.”
-- **35–48 s:** Open “Эстафета”. If a compatible Solana wallet is installed, show the real message-signing prompt and the shortened address after signing. State that this is a no-fee wallet sign-in. If no wallet is available, show the page without simulating a successful signature.
-- **48–60 s:** Display the playable link and the public GitHub repository. State clearly that the on-chain collectible relay is a local Devnet prototype, not a published feature.
+The recording shows the title screen, a genuine collision with the cat, a retry, use of the tray-steady control, reaching room 201, and the relay information page. No wallet was installed in the recording browser. The video therefore does **not** demonstrate a completed wallet signature or an on-chain handoff. The live game requests no transaction and can be played without SOL.
 
-Avoid footage from the different local prototype as if it were the published build. Do not claim an on-chain achievement, mint or handoff without a confirmed transaction.
+The published build shown here has Russian UI. An English candidate is prepared and tested locally in [`idos-english-candidate.tsx`](idos-english-candidate.tsx) but is not live yet. If it is published, record an updated video from the new public build so the demo matches the submitted game.

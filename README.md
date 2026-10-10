@@ -4,12 +4,13 @@
 
 **Live iDos Games build:** https://4nkmxdoj.idos.games/  
 **Public game page:** https://idosgames.com/app/4NKMXDOJ/
+**Demo of the published build:** [watch the 25-second gameplay video](demo/live-idos-v6.mp4)
 
 Last Baursak is a short student game about getting the last baursak to a hungry friend on the night before an exam. The published iDos Games edition is a 45-second room-to-room challenge: dodge the cat, keep the tray balanced, and reach room 201. An optional Solana wallet signature identifies the player without a transaction or fee. This repository also contains a more detailed local gameplay and Devnet relay prototype; its extra mechanics are not yet part of the published game.
 
 ![Published iDos Games title screen](docs/screenshots/live-idos-v6.jpg)
 
-To review the hackathon build, use the **live iDos Games link above**. The source adapted for the platform editor is in [docs/idos-live.tsx](docs/idos-live.tsx). See the [published gameplay screenshot](docs/screenshots/live-gameplay-v6.jpg). In the live build, use **WASD / arrows** or on-screen controls to move, and **Space / Придержать** to lower tray wobble. The local run instructions below refer to a more detailed prototype.
+To review the hackathon build, use the **live iDos Games link above**. The source adapted for the platform editor is in [docs/idos-live.tsx](docs/idos-live.tsx). An [English UI candidate](docs/idos-english-candidate.tsx) is tested locally but is not yet published; see its [local preview](docs/screenshots/english-candidate-local.jpg). See the [published gameplay screenshot](docs/screenshots/live-gameplay-v6.jpg). In the live build, use **WASD / arrows** or on-screen controls to move, and **Space / Придержать** to lower tray wobble. The local run instructions below refer to a more detailed prototype.
 
 ## Play locally
 
@@ -98,9 +99,10 @@ See [validation status](docs/VALIDATION.md) for the exact checks and the remaini
 ## Submission material
 
 - [Pitch and short description](docs/SUBMISSION.md)
-- [Local gameplay video](demo/local-gameplay.webm) — a real practice run; on-chain relay demo is still pending
-- [Demo video storyboard](docs/DEMO_SCRIPT.md)
+- [Published iDos gameplay video](demo/live-idos-v6.mp4) — a continuous browser capture showing a failed attempt, retry, win, and relay page; English explanatory panel, no simulated wallet signature
+- [Raw live recording](demo/live-gameplay-raw.webm) and [video capture notes](docs/DEMO_SCRIPT.md)
+- [Local prototype gameplay video](demo/local-gameplay.webm) — separate from the published build; on-chain relay demo is still pending
 - [iDos Games setup](docs/IDOS_SETUP.md)
 - [Screenshots](docs/screenshots/)
 
-Before submission, record a demo of the **published** iDos game, confirm the Colosseum project and video links, and keep the relay limitations above visible until the Devnet flow is independently verified.
+Before submission, publish and verify the English UI candidate, confirm the Colosseum project and video links, and keep the relay limitations above visible until the Devnet flow is independently verified.

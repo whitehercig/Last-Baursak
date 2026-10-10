@@ -20,9 +20,9 @@
 - A confirmed mint/transfer round trip has not been executed. The public Devnet faucet returned an internal error followed by a 429 / empty-or-limited-faucet response. A funded test wallet is needed.
 - The live wallet signature has not been tested with a real injected wallet; the no-wallet error path was tested locally. No server-verified session or on-chain achievement is implemented in the published build.
 - The published game's mechanics are simpler than the local prototype. Do not claim that the public build has inertial tray physics, server replay, or an on-chain relay.
-- The public GitHub repository exists, but a final video of the published build and Colosseum submission are still pending.
-- The local gameplay recording shows practice. A final submission video should show the actual platform game and identify the Solana integration accurately.
-- The UI is currently Russian. Submission text and storyboard are English.
+- The public GitHub repository and a [continuous demo of the published build](../demo/live-idos-v6.mp4) exist. The edited video adds English explanation; the raw capture is also included. Colosseum submission is still pending.
+- The local gameplay recording is a separate practice run. The published-build video shows the actual platform game and identifies the Solana integration without claiming a live on-chain handoff.
+- The live UI is currently Russian. Submission text and video explanation are English; an English UI candidate has passed local checks but is not published.
 
 ## Dependency audit
 
