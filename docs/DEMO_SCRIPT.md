@@ -1,17 +1,11 @@
-# Final demo — approximately 90 seconds
+# Demo video plan — published iDos Games build
 
-This storyboard is for the final submission video. Record actual functioning features. A local practice recording does not replace the required on-chain demonstration.
+Record the game at https://4nkmxdoj.idos.games/. Aim for a 45–60 second video that shows the actual published behavior.
 
-0–10 s — Hook. Show a funny collision and the baursak slipping off the tray. Voice: “The night before an exam. One hungry friend. One last baursak.”
+- **0–6 s:** Open the title screen. “The night before an exam. One hungry friend. One last baursak.” Show the iDos Games game URL.
+- **6–15 s:** Start a run and move directly into the cat. Show the genuine failure message and retry button.
+- **15–35 s:** Restart, move above the cat, use Space / “Придержать” to lower tray wobble, and reach room 201. Show “Доставлено! Друг спасён.”
+- **35–48 s:** Open “Эстафета”. If a compatible Solana wallet is installed, show the real message-signing prompt and the shortened address after signing. State that this is a no-fee wallet sign-in. If no wallet is available, show the page without simulating a successful signature.
+- **48–60 s:** Display the playable link and the public GitHub repository. State clearly that the on-chain collectible relay is a local Devnet prototype, not a published feature.
 
-10–35 s — Gameplay. Start instantly, dodge a door and a cat, steady the tray, reach room 201. Show keyboard or touch controls briefly.
-
-35–45 s — Result. Show “Друг спасён” and the run's verified result.
-
-45–65 s — Solana. Show the actual Devnet issuance transaction and the one-unit collectible. Pass it to a second wallet and show the confirmed Explorer transaction.
-
-65–80 s — Social payoff. Open the shared relay URL on the second wallet, verify ownership and show the accumulated history. Start the next player's run.
-
-80–90 s — Close. “Deliver care. Pass the story. Last Baursak — built with iDos Games.” Include the actual playable link, project link and source repository.
-
-Do not show scripted success, fake wallets, a roadmap screen in place of a working handoff, or claims that the server's result verification is enforced by the SPL token program.
+Avoid footage from the different local prototype as if it were the published build. Do not claim an on-chain achievement, mint or handoff without a confirmed transaction.

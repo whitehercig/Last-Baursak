@@ -1,14 +1,14 @@
-# Размещение в iDos Games
+# iDos Games deployment status
 
-1. Зарегистрируйся на https://platform.idosgames.com/ и создай проект Last Baursak через AI Coder. Если платформа предлагает выбор блокчейна, выбери Solana.
-2. Передай AI Coder краткое задание из AI_CODER_BRIEF.md. Сохрани историю работы AI Coder: она нужна для подтверждения использования платформы. Наличие локального SDK само по себе не доказывает выполнение требования «создано через iDos Games AI».
-3. Пришли в этот чат ссылку на проект. Следующий этап — перенести готовый модуль в настоящий проект доступным в редакторе способом и проверить его внутри AI Coder. Возможность импорта исходного ZIP в интерфейсе пока не подтверждена.
-4. Сохрани сгенерированный платформой `src/idos.title.ts` с настоящим canonical Title ID. Не подставляй выдуманные значения. На вручную созданной копии идентичность заполняется настоящими данными Title; платформа управляет идентичностью своих проектов сама.
-5. Подними `server/index.ts` как отдельный Node-сервис по HTTPS. Для хостинга задай HOST=0.0.0.0, PORT из настроек хостинга, ALLOWED_ORIGINS со списком точных адресов игры. Сохрани `.server-data` на постоянном диске. Это подписи эмитента, не ключи игроков. Тестовые RPC могут ограничивать частоту запросов.
-6. Во время сборки клиента задай VITE_RELAY_API_URL=https://адрес-сервера. Без этого размещённый клиент будет искать `/api` на адресе самой игры, где нашего сервера нет.
-7. Проверь DEV Title: `npm run verify`. Этот тест должен пройти с реальным аккаунтом устройства через SDK; сейчас Title не создан и проверка блокируется.
-8. Проверь оба режима: тренировка без кошелька; подписанный вход, выигрыш, выдача предмета и передача между двумя кошельками с тестовыми SOL. Покажи реальные Explorer-ссылки и получение предмета вторым игроком.
-9. Собери статический клиент: `npm run build`. Содержимое `dist/` подходит для загрузки билда в платформу. Управление билдами через официальный Title MCP требует авторизации publisher, permission build:write и настоящего Title ID.
-10. Проверь публичную игру, запиши видео и добавь ссылки в описание Colosseum.
+The title **Last Baursak** is already created in iDos Games under ID `4NKMXDOJ`; its DEV identity is `4NKMXDOJ-DEV`.
 
-Регистрация аккаунта, реальный Title, размещение API и полный Devnet round trip ещё не выполнены. Локальная версия доступна по http://127.0.0.1:5187/, пока запущен `npm start`.
+- Published game: https://4nkmxdoj.idos.games/
+- Public title page: https://idosgames.com/app/4NKMXDOJ/
+- Platform editor: https://platform.idosgames.com/4NKMXDOJ/ai-coding
+- Published source adaptation: [idos-live.tsx](idos-live.tsx)
+
+The current build was edited and compiled in iDos Games AI Coding. The platform reported a successful build, and the public game was checked in a browser. The local `src/idos.title.ts` is an unbound scaffold file and is not the canonical identity of the live title. `npm run verify` checks that local scaffold, so its `title_not_bound` result does not describe the published game.
+
+The more elaborate local game and Solana Devnet relay API in `src/modules/last-baursak/` and `server/` are separate prototypes. Deploying them would require an HTTPS API, persistent issuer data, allowed origins, and test SOL for Devnet transactions. None of those on-chain relay steps are part of the current public build. The live game uses an optional, no-fee Solana message signature for player identity.
+
+For the hackathon, the remaining tasks are to record a demo of the **published** build and submit it through an eligible Colosseum project. The Colosseum account currently has a separate team project, so do not modify that project without an explicit decision from its owner and team.
