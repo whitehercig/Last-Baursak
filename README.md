@@ -5,9 +5,11 @@
 **Live iDos Games build:** https://4nkmxdoj.idos.games/  
 **Public game page:** https://idosgames.com/app/4NKMXDOJ/
 
-Last Baursak is a short 2D game about a familiar student problem: it is the night before an exam, your friend is hungry, and the dorm is full of obstacles. You carry a tray, while the last piece of fried dough slides with your momentum. An opening door, a pile of notes, or a cat can ruin your delivery.
+Last Baursak is a short student game about getting the last baursak to a hungry friend on the night before an exam. The published iDos Games edition is a 45-second room-to-room challenge: dodge the cat, keep the tray balanced, and reach room 201. An optional Solana wallet signature identifies the player without a transaction or fee. This repository also contains a more detailed local gameplay and Devnet relay prototype; its extra mechanics are not yet part of the published game.
 
-![Last Baursak](docs/screenshots/desktop.png)
+![Local gameplay prototype](docs/screenshots/desktop.png)
+
+To review the hackathon build, use the **live iDos Games link above**. The source adapted for the platform editor is in [docs/idos-live.tsx](docs/idos-live.tsx). The screenshot and instructions below refer to the more detailed **local prototype**. In the live build, use **WASD / arrows** or on-screen controls to move, and **Space / Придержать** to lower tray wobble.
 
 ## Play locally
 
@@ -30,7 +32,7 @@ The current interface is Russian. A typical successful run takes approximately 3
 
 ## Solana integration
 
-The published iDos Games V1 implements **Solana wallet authentication**: players can connect an injected Solana wallet as their game identity, without a transaction, token launch, or payment. This is the live integration demonstrated in the public build.
+The published iDos Games build can **connect an injected Solana wallet and request a unique login-message signature** before displaying its public address as the player's identity. Signing a message does not require a transaction, token launch, or payment. The signature is handled in the browser; the published build does not persist a session server-side or store achievements on-chain.
 
 The repository also contains the following **Devnet relay prototype**, which is kept here as the next milestone rather than being represented as already deployed:
 
@@ -57,7 +59,7 @@ The server creates its own signing key in `.server-data/issuer.json` with restri
 
 The project was scaffolded from the official **@idosgames/mcp 0.1.27** host registry, with its pinned SDK packages. The game is a registered iDos Games module with a route, panel and `ctx.exposeToAgent` surface. The platform host and sign-in flow are retained in `src/platform.tsx` and `src/base/`.
 
-**Current status:** the title is live in iDos Games as **Last Baursak** (`4NKMXDOJ-DEV` during development), with V1 published on 2026-10-09. The deployed build is a compact, self-contained arcade version with wallet authentication. The local relay API remains a separate Devnet prototype and needs hosting before the relay collectible flow can go live.
+**Current status:** the title is live in iDos Games as **Last Baursak** (`4NKMXDOJ-DEV` during development). The deployed build is a compact, self-contained arcade version with optional wallet signature. The local relay API remains a separate Devnet prototype and needs hosting before the relay collectible flow can go live.
 
 `src/idos.title.ts` is retained as the original local scaffold identity file. The platform editor owns the canonical published source and title binding. See [platform setup](docs/IDOS_SETUP.md) and the [AI Coder brief](docs/AI_CODER_BRIEF.md).
 
@@ -101,4 +103,4 @@ See [validation status](docs/VALIDATION.md) for the exact checks and the remaini
 - [iDos Games setup](docs/IDOS_SETUP.md)
 - [Screenshots](docs/screenshots/)
 
-Before submission, add the public source repository URL and a hosted demo video. Keep the relay limitations above visible until the Devnet flow is independently verified.
+Before submission, record a demo of the **published** iDos game, confirm the Colosseum project and video links, and keep the relay limitations above visible until the Devnet flow is independently verified.

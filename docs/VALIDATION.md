@@ -1,4 +1,4 @@
-# Validation status — 2026-10-05
+# Validation status — 2026-10-10
 
 ## Passed
 
@@ -11,14 +11,16 @@
 - Live API test: signed challenge authentication, single-use challenge protection, rejection of anonymous sessions, rejection of mint before completion, rejection of a fabricated win and impossible fast replay.
 - The API replayed and confirmed a real 30.2-second winning fixture.
 - Live Solana Devnet RPC: correct genesis, rent/blockhash reads, mint transaction construction and all required signatures. The fully signed transaction fits the Solana packet size (864 bytes).
+- The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. The platform Dev build starts a 45-second run, detects the cat collision, and accepts a successful route that steadies the tray. The public landing page was visually checked against the supplied screenshot and on a 390 px phone viewport.
 
 ## Not yet verified / not delivered
 
-- A genuine iDos Games Title and AI Coder preview are not available: the user has no platform account yet. `npm run verify` exits with title_not_bound until identity is supplied.
+- `npm run verify` still targets the unbound local scaffold and exits with `title_not_bound`; it is not a test of the live platform title.
 - A confirmed mint/transfer round trip has not been executed. The public Devnet faucet returned an internal error followed by a 429 / empty-or-limited-faucet response. A funded test wallet is needed.
-- The platform host is build/type checked, but its actual sign-in, iframe wallet behavior and dependency allowlist must be checked inside the real project.
-- No public playable deployment, public GitHub repository or final hackathon submission has been created.
-- The local gameplay recording shows practice. The final submission video must include the real platform game and confirmed Solana actions.
+- The live wallet signature has not been tested with a real injected wallet; the no-wallet error path was tested locally. No server-verified session or on-chain achievement is implemented in the published build.
+- The published game's mechanics are simpler than the local prototype. Do not claim that the public build has inertial tray physics, server replay, or an on-chain relay.
+- The public GitHub repository exists, but a final video of the published build and Colosseum submission are still pending.
+- The local gameplay recording shows practice. A final submission video should show the actual platform game and identify the Solana integration accurately.
 - The UI is currently Russian. Submission text and storyboard are English.
 
 ## Dependency audit

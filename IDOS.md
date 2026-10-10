@@ -4,7 +4,7 @@ Last Baursak is a short 2D student delivery game with inertial tray physics, key
 
 ## Current identity and status
 
-The source is scaffolded from the official @idosgames/mcp 0.1.27 registry. There is no real Title yet. `src/idos.title.ts` is the unbound official template. Do not invent an ID or pretend the platform has been verified. When a real platform project exists, retain its generated identity and verify the paired DEV Title.
+The source is scaffolded from the official @idosgames/mcp 0.1.27 registry. The real iDos Games title is `4NKMXDOJ` (DEV identity `4NKMXDOJ-DEV`), published at https://4nkmxdoj.idos.games/. The platform editor owns the published source; `src/idos.title.ts` remains the unbound local template. The published single-file adaptation is tracked in `docs/idos-live.tsx`. Do not claim that the separate local Devnet relay API is deployed.
 
 ## Installed modules
 
