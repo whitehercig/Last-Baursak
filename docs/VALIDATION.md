@@ -11,8 +11,8 @@
 - Live API test: signed challenge authentication, single-use challenge protection, rejection of anonymous sessions, rejection of mint before completion, rejection of a fabricated win and impossible fast replay.
 - The API replayed and confirmed a real 30.2-second winning fixture.
 - Live Solana Devnet RPC: correct genesis, rent/blockhash reads, mint transaction construction and all required signatures. The fully signed transaction fits the Solana packet size (864 bytes).
-- The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. Production V6 loaded and started a run. The platform Dev build detects the cat collision and accepts a successful route that steadies the tray. The public landing page was visually checked against the supplied screenshot and on a 390 px phone viewport.
-- Public browser captures: [title screen](screenshots/live-idos-v6.jpg) and [gameplay](screenshots/live-gameplay-v6.jpg).
+- The iDos Games title `4NKMXDOJ` is live at https://4nkmxdoj.idos.games/. Production v7 has an English interface. The platform Dev build passed, then the public build was tested through a cat collision, retry, successful route using the steady control, and relay page. The earlier v6 landing page was also checked on a 390 px phone viewport; a separate v7 phone check is still pending.
+- Public v7 browser captures: [title screen](screenshots/live-idos-v7.jpg) and [winning gameplay](screenshots/live-gameplay-v7.jpg).
 
 ## Not yet verified / not delivered
 
@@ -20,9 +20,8 @@
 - A confirmed mint/transfer round trip has not been executed. The public Devnet faucet returned an internal error followed by a 429 / empty-or-limited-faucet response. A funded test wallet is needed.
 - The live wallet signature has not been tested with a real injected wallet; the no-wallet error path was tested locally. No server-verified session or on-chain achievement is implemented in the published build.
 - The published game's mechanics are simpler than the local prototype. Do not claim that the public build has inertial tray physics, server replay, or an on-chain relay.
-- The public GitHub repository and a [continuous demo of the published build](../demo/live-idos-v6.mp4) exist. The edited video adds English explanation; the raw capture is also included. Colosseum submission is still pending.
-- The local gameplay recording is a separate practice run. The published-build video shows the actual platform game and identifies the Solana integration without claiming a live on-chain handoff.
-- The live UI is currently Russian. Submission text and video explanation are English; an English UI candidate has passed local checks but is not published.
+- The public GitHub repository and a [v7 walkthrough assembled from captured public-game frames](../demo/live-idos-v7.mp4) exist. The continuous [v6 browser capture](../demo/live-gameplay-raw.webm) is retained as historical footage. Colosseum submission is still pending.
+- The local gameplay recording is a separate practice run. The v7 walkthrough shows the actual platform game's states and identifies the Solana integration without claiming a completed wallet signature or live on-chain handoff.
 
 ## Dependency audit
 

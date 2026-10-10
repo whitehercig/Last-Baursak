@@ -33,8 +33,8 @@ The challenge encourages ideas inspired by students, culture and communities. La
 - Public playable game: https://4nkmxdoj.idos.games/
 - iDos Games game page: https://idosgames.com/app/4NKMXDOJ/
 - Public GitHub repository: https://github.com/whitehercig/Last-Baursak
-- Demo video of the published build, with English explanatory panel: https://github.com/whitehercig/Last-Baursak/blob/main/demo/live-idos-v6.mp4
+- Demo walkthrough of the published English v7 build, assembled from public-game captures: https://github.com/whitehercig/Last-Baursak/blob/main/demo/live-idos-v7.mp4
 - Confirmed mint transaction: not verified yet.
 - Confirmed handoff transaction: not verified yet.
 
-Do not present pending items as completed. The published game's UI is currently in Russian. The demo has English explanation and an English UI candidate is prepared in `docs/idos-english-candidate.tsx`, but it is not yet published. The Colosseum rules say submitted content must be in English; publish and recheck the English UI before submission.
+Do not present pending items as completed. The published game's UI is English, but a real-wallet signature and the separate Devnet collectible handoff have not been verified end to end. Resolve Colosseum eligibility before submitting; do not change or submit the existing Solvex team project.
